@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,12 +17,55 @@
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
+
 <body>
 
     <section class="container">
         <div class="row header-wrapper">
             <div>Catch A Train</div>
         </div>
+        <!-- End Header Row -->
+
+        <table class="train-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Item Name</th>
+                    <th>Item Price</th>
+                </tr>
+            </thead>
+
+            <tbody class="table-body"></tbody>
+                <!-- This is where new table row will go -->
+            </tbody>
+        </table>
+        <!-- End Train Table -->
+
+        <div class="row">
+            <form class="col s12">
+              <div class="row">
+                <div class="input-field col s6">
+                  <input placeholder="Train Name" id="train-name" type="text" class="validate">
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s6">
+                  <input placeholder="Destination" id="destination-name" type="text" class="validate">
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s6">
+                  <input placeholder="First Train Time" id="first-train-time" type="text" class="validate">
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s6">
+                  <input placeholder="Frequency" id="frequency-name" type="number" class="validate">
+                </div>
+              </div>
+              <a class="waves-effect waves-light btn-small">Submit</a>
+            </form>
+          </div>
     </section>
     <!-- End Container -->
 
@@ -29,4 +73,5 @@
     <script src="assets/javascript/app.js"></script>
 
 </body>
+
 </html>
