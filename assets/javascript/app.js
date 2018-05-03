@@ -27,18 +27,17 @@ function grabTrains() {
   database.ref().on("child_added", function(snapshot, prevChildKey) {
     var newTrain = snapshot.val();
     // calcNextArrival(newTrain.firstTrainTime, newTrain.frequency);
-    console.log(moment(newTrain.firstTrainTime).format("hh:mm"));
     tableBody.append("<tr><td>" + newTrain.trainName + "</td><td>" + newTrain.destination + "</td><td>" + newTrain.frequency + "</td><td>" + nextTrainArrival + "</td><td>" + newTrain.minutesAway + "</td></tr>")
   });
 }
 grabTrains();
 
-function calcNextArrival(firstArrival, trainFrequency) {
-  nextTrainArrival = moment(firstArrival).add(trainFrequency, "m").format("hh:mm")
-}
-function calcMinutesAway(timeNow, timeOfNextTrain) {
-  minutesAwayDisplay = timeNow - timeOfNextTrain;
-}
+// function calcNextArrival(firstArrival, trainFrequency) {
+//   nextTrainArrival = moment(firstArrival).add(trainFrequency, "m").format("hh:mm")
+// }
+// function calcMinutesAway(timeNow, timeOfNextTrain) {
+//   minutesAwayDisplay = timeNow - timeOfNextTrain;
+// }
 
   // Add a new train
   $("#submit-new-train").on("click", function (e) {
