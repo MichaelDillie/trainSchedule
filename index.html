@@ -2,77 +2,79 @@
 <html lang="en-us">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Train Schedule</title>
-    <!-- Materialize -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
-    <!-- Reset CSS -->
-    <link rel="stylesheet" href="assets/css/reset.css">
-    <!-- Style CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <!-- Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
-    <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Train Schedule</title>
+  <!-- Materialize -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+  <!-- Reset CSS -->
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <!-- Style CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+  <!-- Moment -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment-with-locales.min.js"></script>
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body>
 
-    <section class="container">
-        <div class="row header-wrapper">
-            <div>Catch A Train</div>
-        </div>
-        <!-- End Header Row -->
+  <section class="container">
+    <div class="row header-wrapper">
+      <div>Catch A Train</div>
+    </div>
+    <!-- End Header Row -->
 
-        <table class="train-table">
-            <thead>
-                <tr>
-                    <th>Train Name</th>
-                    <th>Destination</th>
-                    <th>Frequency</th>
-                    <th>Next Arrival</th>
-                    <th>Minutes Away</th>
-                </tr>
-            </thead>
+    <table class="striped train-table">
+      <thead>
+        <tr>
+          <th>Train Name</th>
+          <th>Destination</th>
+          <th>Frequency(Min.)</th>
+          <th>Next Arrival</th>
+          <th>Minutes Away</th>
+        </tr>
+      </thead>
 
-            <tbody class="table-body"></tbody>
-                <!-- This is where new table row will go -->
-            </tbody>
-        </table>
-        <!-- End Train Table -->
+      <tbody id="table-body"></tbody>
+      <!-- This is where new table row will go -->
+      </tbody>
+    </table>
+    <!-- End Train Table -->
 
+    <div class="row">
+      <form class="col s12">
         <div class="row">
-            <form class="col s12">
-              <div class="row">
-                <div class="input-field col s6">
-                  <input placeholder="Train Name" id="train-name" type="text" class="validate">
-                </div>
-              </div>
-              <div class="row">
-                <div class="input-field col s6">
-                  <input placeholder="Destination" id="destination-name" type="text" class="validate">
-                </div>
-              </div>
-              <div class="row">
-                <div class="input-field col s6">
-                  <input placeholder="First Train Time" id="first-train-time" type="text" class="validate">
-                </div>
-              </div>
-              <div class="row">
-                <div class="input-field col s6">
-                  <input placeholder="Frequency" id="frequency-name" type="number" class="validate">
-                </div>
-              </div>
-              <a class="waves-effect waves-light btn-small" id="submit-new-train">Submit</a>
-            </form>
+          <div class="input-field col s6">
+            <input placeholder="Train Name" id="train-name" type="text" class="validate">
           </div>
-    </section>
-    <!-- End Container -->
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <input placeholder="Destination" id="destination-name" type="text" class="validate">
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <input placeholder="First Train Time" id="first-train-time" type="text" class="validate">
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <input placeholder="Frequency" id="frequency-name" type="number" class="validate">
+          </div>
+        </div>
+        <a class="waves-effect waves-light btn-small" id="submit-new-train">Submit</a>
+      </form>
+    </div>
+  </section>
+  <!-- End Container -->
 
-    <!-- JS -->
-    <script src="assets/javascript/app.js"></script>
+  <!-- JS -->
+  <script src="assets/javascript/app.js"></script>
 
 </body>
 
