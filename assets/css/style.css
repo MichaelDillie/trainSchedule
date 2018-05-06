@@ -1,8 +1,29 @@
+body {
+    font-family: 'Raleway', sans-serif;
+    background: url("../images/BG.jpg")
+}
 .header-wrapper {
-    background: #7629FF;
+    font-weight: 700;
+    background: #00000054;
     height: 100px;
     text-align: center;
     font-size: 3em;
     line-height: 100px;
     color: #fff;
+}
+thead {
+    margin: 20px 0px;
+}
+table {
+    background: #ff00003d;
+}
+form {
+    margin-top: 20px;
+    background: #00000054;
+}
+form input {
+    color: #fff;
+}
+form a {
+    margin-bottom: 20px;
 }

@@ -19,25 +19,8 @@ $(document).ready(function () {
 
   var nextTrainArrival;
   var minutesAwayDisplay;
-  
+
   var tableBody = $("#table-body");
-
-
-function grabTrains() {
-  database.ref().on("child_added", function(snapshot, prevChildKey) {
-    var newTrain = snapshot.val();
-    // calcNextArrival(newTrain.firstTrainTime, newTrain.frequency);
-    tableBody.append("<tr><td>" + newTrain.trainName + "</td><td>" + newTrain.destination + "</td><td>" + newTrain.frequency + "</td><td>" + nextTrainArrival + "</td><td>" + newTrain.minutesAway + "</td></tr>")
-  });
-}
-grabTrains();
-
-// function calcNextArrival(firstArrival, trainFrequency) {
-//   nextTrainArrival = moment(firstArrival).add(trainFrequency, "m").format("hh:mm")
-// }
-// function calcMinutesAway(timeNow, timeOfNextTrain) {
-//   minutesAwayDisplay = timeNow - timeOfNextTrain;
-// }
 
   // Add a new train
   $("#submit-new-train").on("click", function (e) {
@@ -60,5 +43,26 @@ grabTrains();
     destinationInput = $("#destination-name").val("");
     firstTrainTimeInput = $("#first-train-time").val("");
     frequencyInput = $("#frequency-name").val("");
+
   });
+
+
+
+  function grabTrains() {
+    database.ref().on("child_added", function (snapshot, prevChildKey) {
+      var newTrain = snapshot.val();
+
+      var timeFix = moment(newTrain.firstTrainTime, "h:mm A").subtract(10, "years");
+      var currentTime = moment();
+      var timeDifference = moment().diff(moment(timeFix), "minutes");
+      var timeRemaining = timeDifference % newTrain.frequency;
+      var minAway = newTrain.frequency - timeRemaining;
+      var nextTrain = moment().add(minAway, "minutes").format("h:mm A")
+
+
+      tableBody.append("<tr><td>" + newTrain.trainName + "</td><td>" + newTrain.destination + "</td><td>" + newTrain.frequency + "</td><td>" + nextTrain + "</td><td>" + minAway + "</td></tr>")
+    });
+    tableBody.empty();
+  }
+  grabTrains();
 });
